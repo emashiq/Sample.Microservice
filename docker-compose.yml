@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.8'
 
 services:
 
@@ -7,6 +7,10 @@ services:
     build:
       context: .
       dockerfile: ApiGateway/Dockerfile
+    networks:
+      - overlay
+    ports:
+      - "8000:80"
 
   productservice:
     image: ${DOCKER_REGISTRY-}productservice
@@ -20,8 +24,11 @@ services:
     build:
       context: .
       dockerfile: OrderService/Dockerfile
-
-
+    networks:
+      - overlay
+    ports:
+        - "8001:80"
+  
   db:
     image: "mcr.microsoft.com/mssql/server"
     environment:
@@ -30,3 +37,5 @@ services:
     ports:
        - "9000:1433"
 
+networks:
+  overlay:

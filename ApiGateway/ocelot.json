@@ -1,0 +1,57 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/order/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/orderservice/order/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/order/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/orderservice/order/",
+      "UpstreamHttpMethod": [ "post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/order/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/orderservice/order/{id}",
+      "UpstreamHttpMethod": [ "put" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/order/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/orderservice/order/{id}",
+      "UpstreamHttpMethod": [ "delete" ]
+    }
+
+  ],
+  "GlobalConfiguration": {
+    //"BaseUrl": "http://localhost:8000",
+    "UseServiceDiscovery": false
+  }
+}
